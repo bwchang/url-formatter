@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/bwchang/url-formatter/static/css/main.a6377d14.chunk.css",
+    "main.js": "/bwchang/url-formatter/static/js/main.37265fd1.chunk.js",
+    "main.js.map": "/bwchang/url-formatter/static/js/main.37265fd1.chunk.js.map",
+    "runtime-main.js": "/bwchang/url-formatter/static/js/runtime-main.c329ae2c.js",
+    "runtime-main.js.map": "/bwchang/url-formatter/static/js/runtime-main.c329ae2c.js.map",
+    "static/css/2.11829350.chunk.css": "/bwchang/url-formatter/static/css/2.11829350.chunk.css",
+    "static/js/2.6d289ab6.chunk.js": "/bwchang/url-formatter/static/js/2.6d289ab6.chunk.js",
+    "static/js/2.6d289ab6.chunk.js.map": "/bwchang/url-formatter/static/js/2.6d289ab6.chunk.js.map",
+    "index.html": "/bwchang/url-formatter/index.html",
+    "precache-manifest.7d97874d906e271839c5e72eb4d47ef6.js": "/bwchang/url-formatter/precache-manifest.7d97874d906e271839c5e72eb4d47ef6.js",
+    "service-worker.js": "/bwchang/url-formatter/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/bwchang/url-formatter/static/css/2.11829350.chunk.css.map",
+    "static/css/main.a6377d14.chunk.css.map": "/bwchang/url-formatter/static/css/main.a6377d14.chunk.css.map",
+    "static/js/2.6d289ab6.chunk.js.LICENSE.txt": "/bwchang/url-formatter/static/js/2.6d289ab6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c329ae2c.js",
+    "static/css/2.11829350.chunk.css",
+    "static/js/2.6d289ab6.chunk.js",
+    "static/css/main.a6377d14.chunk.css",
+    "static/js/main.37265fd1.chunk.js"
+  ]
+}
