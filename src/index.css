@@ -6,6 +6,12 @@
     margin-top: 20px;
 }
 
+h1 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
 #inputUrl {
   resize: none;
 }
