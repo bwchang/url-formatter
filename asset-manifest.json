@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/bwchang/url-formatter/static/css/main.a6377d14.chunk.css",
-    "main.js": "/bwchang/url-formatter/static/js/main.39e6942f.chunk.js",
-    "main.js.map": "/bwchang/url-formatter/static/js/main.39e6942f.chunk.js.map",
-    "runtime-main.js": "/bwchang/url-formatter/static/js/runtime-main.c329ae2c.js",
-    "runtime-main.js.map": "/bwchang/url-formatter/static/js/runtime-main.c329ae2c.js.map",
-    "static/css/2.11829350.chunk.css": "/bwchang/url-formatter/static/css/2.11829350.chunk.css",
-    "static/js/2.0a6a52f4.chunk.js": "/bwchang/url-formatter/static/js/2.0a6a52f4.chunk.js",
-    "static/js/2.0a6a52f4.chunk.js.map": "/bwchang/url-formatter/static/js/2.0a6a52f4.chunk.js.map",
-    "index.html": "/bwchang/url-formatter/index.html",
-    "precache-manifest.805bb47f2e7db957003c158f14996857.js": "/bwchang/url-formatter/precache-manifest.805bb47f2e7db957003c158f14996857.js",
-    "service-worker.js": "/bwchang/url-formatter/service-worker.js",
-    "static/css/2.11829350.chunk.css.map": "/bwchang/url-formatter/static/css/2.11829350.chunk.css.map",
-    "static/css/main.a6377d14.chunk.css.map": "/bwchang/url-formatter/static/css/main.a6377d14.chunk.css.map",
-    "static/js/2.0a6a52f4.chunk.js.LICENSE.txt": "/bwchang/url-formatter/static/js/2.0a6a52f4.chunk.js.LICENSE.txt"
+    "main.css": "/url-formatter/static/css/main.c8c148b7.chunk.css",
+    "main.js": "/url-formatter/static/js/main.8fbf756c.chunk.js",
+    "main.js.map": "/url-formatter/static/js/main.8fbf756c.chunk.js.map",
+    "runtime-main.js": "/url-formatter/static/js/runtime-main.af7a9911.js",
+    "runtime-main.js.map": "/url-formatter/static/js/runtime-main.af7a9911.js.map",
+    "static/css/2.3710aedc.chunk.css": "/url-formatter/static/css/2.3710aedc.chunk.css",
+    "static/js/2.ecaf3f2d.chunk.js": "/url-formatter/static/js/2.ecaf3f2d.chunk.js",
+    "static/js/2.ecaf3f2d.chunk.js.map": "/url-formatter/static/js/2.ecaf3f2d.chunk.js.map",
+    "index.html": "/url-formatter/index.html",
+    "precache-manifest.46f0787426c2023ab06d1e1e8705a38f.js": "/url-formatter/precache-manifest.46f0787426c2023ab06d1e1e8705a38f.js",
+    "service-worker.js": "/url-formatter/service-worker.js",
+    "static/css/2.3710aedc.chunk.css.map": "/url-formatter/static/css/2.3710aedc.chunk.css.map",
+    "static/css/main.c8c148b7.chunk.css.map": "/url-formatter/static/css/main.c8c148b7.chunk.css.map",
+    "static/js/2.ecaf3f2d.chunk.js.LICENSE.txt": "/url-formatter/static/js/2.ecaf3f2d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c329ae2c.js",
-    "static/css/2.11829350.chunk.css",
-    "static/js/2.0a6a52f4.chunk.js",
-    "static/css/main.a6377d14.chunk.css",
-    "static/js/main.39e6942f.chunk.js"
+    "static/js/runtime-main.af7a9911.js",
+    "static/css/2.3710aedc.chunk.css",
+    "static/js/2.ecaf3f2d.chunk.js",
+    "static/css/main.c8c148b7.chunk.css",
+    "static/js/main.8fbf756c.chunk.js"
   ]
 }
