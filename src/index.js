@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -38,19 +36,9 @@ class Formatter extends React.Component {
   	}
 }
 
-class App extends React.Component {
-  render() {
-    return(
-      <Router basename={ process.env.PUBLIC__URL }>
-        <Formatter />
-      </Router>
-    );
-  };
-}
-
 // ========================================
 
 ReactDOM.render(
-  <App />,
+  <Formatter />,
   document.getElementById('root')
 );
