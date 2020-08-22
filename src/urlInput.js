@@ -45,10 +45,10 @@ export class UrlInput extends React.Component {
     return (<div className="urlInput">
       { this.state.error && alert }
       <div className="form-group">
-        <label htmlFor="inputUrl">Paste URL here:</label><br/>
+        <label htmlFor="inputUrl" className="plainText">Paste URL here:</label><br/>
         <textarea className="form-control" id="inputUrl" rows="12" onChange={ this.onTextChange } />
       </div>
-      <Button variant="primary" size="lg" block disabled={ !this.state.url } onClick={ this.onSubmit }>Submit</Button>
+      <Button size="lg" className="submitButton" block disabled={ !this.state.url } onClick={ this.onSubmit }>Submit</Button>
     </div>);
 	}
 }

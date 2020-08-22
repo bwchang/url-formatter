@@ -56,7 +56,7 @@ export class ParameterEditor extends React.Component {
   renderTable() {
     const rows = map(Array.from(Array(this.state.parameters.length),(x,i)=>i), (index) => {
       return (
-        <tr key={ index } data-rowid={ index }>
+        <tr key={ index } data-rowid={ index } className={ `row${index % 2}` }>
           <td>
             <Form.Control required type="text"
               className={ this.state.parametersValid[index] ? "" : "invalidInput" }
@@ -78,8 +78,8 @@ export class ParameterEditor extends React.Component {
       <Table>
         <thead>
           <tr>
-            <th>Parameter</th>
-            <th>Macro</th>
+            <th id="parameterHeader" className="text-center">Parameter</th>
+            <th id="macroHeader" className="text-center">Macro</th>
           </tr>
         </thead>
         <tbody>{ rows }</tbody>
@@ -101,7 +101,7 @@ export class ParameterEditor extends React.Component {
         { this.renderTable() }
         <div id="parameterEditorButtonsContainer">
           <Button id="parameterEditorCancelButton" variant="secondary" size="lg" onClick={ this.props.onCancel }>Back</Button>
-          <Button id="parameterEditorSubmitButton" variant="primary" type="submit" size="lg" disabled={ this.shouldDisableSubmit() } onClick={ this.onSubmit }>Convert</Button>
+          <Button id="parameterEditorSubmitButton" className="submitButton" size="lg" disabled={ this.shouldDisableSubmit() } onClick={ this.onSubmit }>Convert</Button>
         </div>
         { this.state.showConvertedUrl && this.renderConvertedUrl() }
       </div>

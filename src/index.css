@@ -10,6 +10,8 @@ h1 {
   display: flex;
   text-align: center;
   justify-content: center;
+  margin-top: 10px !important;
+  color: #08576c;
 }
 
 #inputUrl {
@@ -27,6 +29,7 @@ h1 {
 #parameterEditorCancelButton {
   float: left;
   width: 45%;
+  border: none;
 }
 
 #parameterEditorSubmitButton {
@@ -34,12 +37,19 @@ h1 {
   width: 45%;
 }
 
+.submitButton {
+  background-color: #084959 !important;
+  color: white;
+  border: none;
+}
+
 #convertedUrl {
-  background-color: #d3d3d3;
+  background-color: #d6f4fb;
   width: 100%;
   overflow-wrap: break-word;
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 10px;
+  color: #08576c;
 }
 
 #parameterEditorButtonsContainer {
@@ -49,4 +59,34 @@ h1 {
 
 .invalidInput {
   border-color: red !important;
+}
+
+th {
+  color: #003846;
+}
+
+#parameterHeader {
+  background-color: #08576c;
+  color: white;
+}
+
+#macroHeader {
+  background-color: #084959;
+  color: white;
+}
+
+.row0 {
+  background-color: #a6e6f6;
+}
+
+.row1 {
+  background-color: #d6f4fb;
+}
+
+input {
+  color: #08576c;
+}
+
+.plainText {
+  color: #08576c;
 }
