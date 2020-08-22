@@ -34,12 +34,6 @@ h1 {
   width: 45%;
 }
 
-.parameterEditorKeyColumn {
-  resize: none;
-  width: 100%;
-  border: none;
-}
-
 #convertedUrl {
   background-color: #d3d3d3;
   width: 100%;
@@ -51,4 +45,8 @@ h1 {
 #parameterEditorButtonsContainer {
   margin-bottom: 20px;
   overflow: auto;
+}
+
+.invalidInput {
+  border-color: red !important;
 }

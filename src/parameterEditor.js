@@ -1,43 +1,76 @@
 import React from 'react';
 
-import { map, each } from "underscore";
+import { map, each, all } from "underscore";
 
 import { Table, Form, Button } from 'react-bootstrap';
 
 export class ParameterEditor extends React.Component {
 	constructor(props) {
 		super();
-		this.state = { params: Object.assign({}, props.params), showConvertedUrl: false }
+    const parameters = Object.keys(props.params);
+    const macros = [];
+    each(parameters, (p) => { macros.push(props.params[p]); });
+
+    const parametersValid = Array.from(Array(parameters.length),(x,i)=>true);
+    const macrosValid = Array.from(Array(macros.length),(x,i)=>true);
+
+		this.state = { parameters, macros, parametersValid, macrosValid, showConvertedUrl: false }
 	}
 
-  onChange = (e) => {
-    const newParams = { ...this.state.params };
-    newParams[e.target.id] = e.target.value;
-    this.setState({ params: newParams });
+  onChangeParameter = (e) => {
+    const newParams = [...this.state.parameters];
+    const index = e.target.closest("tr").getAttribute("data-rowid");
+    newParams[index] = e.target.value;
+
+    const newParamsValid = [...this.state.parametersValid];
+    newParamsValid[index] = !!e.target.value;
+
+    this.setState({ parameters: newParams, parametersValid: newParamsValid });
+  };
+
+  onChangeMacro = (e) => {
+    const newMacros = [...this.state.macros];
+    const index = e.target.closest("tr").getAttribute("data-rowid");
+    newMacros[index] = e.target.value;
+
+    const newMacrosValid = [...this.state.macrosValid];
+    newMacrosValid[index] = !!e.target.value;
+
+    this.setState({ macros: newMacros, macrosValid: newMacrosValid });
   };
 
   onSubmit = () => {
     var url = this.props.url ? this.props.url : "";
-    var firstParam = true;
     var paramString;
-    each(this.state.params, (value, key) => {
-      if (firstParam) {
-        paramString = `${key}=${value}`;
-        firstParam = false;
-      } else {
-        paramString = `&${key}=${value}`;
-      }
-      url = url.concat(paramString);
-    });
+    for (var i = 0; i < this.state.parameters.length; i++) {
+      paramString = i === 0 ? "?" : "&";
+      url = url.concat(paramString.concat(`${this.state.parameters[i]}=${this.state.macros[i]}`));
+    };
     this.setState({ showConvertedUrl: true, convertedUrl: url });
   };
 
+  shouldDisableSubmit() {
+    return !all(this.state.parametersValid.concat(this.state.macrosValid));
+  }
+
   renderTable() {
-    const rows = map(this.state.params, (value, key) => {
+    const rows = map(Array.from(Array(this.state.parameters.length),(x,i)=>i), (index) => {
       return (
-        <tr key={ `${key}_row` }>
-          <td><textarea className="parameterEditorKeyColumn" readOnly value={ key } /></td>
-          <td><Form.Control type="text" id={ key } value={ value } onChange={ this.onChange } /></td>
+        <tr key={ index } data-rowid={ index }>
+          <td>
+            <Form.Control required type="text"
+              className={ this.state.parametersValid[index] ? "" : "invalidInput" }
+              value={ this.state.parameters[index] }
+              onChange={ this.onChangeParameter }
+            />
+          </td>
+          <td>
+            <Form.Control required type="text"
+              className={ this.state.macrosValid[index] ? "" : "invalidInput" }
+              value={ this.state.macros[index] }
+              onChange={ this.onChangeMacro }
+            />
+          </td>
         </tr>
       );
     });
@@ -45,8 +78,8 @@ export class ParameterEditor extends React.Component {
       <Table>
         <thead>
           <tr>
-            <th>Key</th>
-            <th>Value</th>
+            <th>Parameter</th>
+            <th>Macro</th>
           </tr>
         </thead>
         <tbody>{ rows }</tbody>
@@ -63,13 +96,15 @@ export class ParameterEditor extends React.Component {
   }
 
 	render() {
-		return (<div className="parameterEditor">
-      { this.renderTable() }
-      <div id="parameterEditorButtonsContainer">
-        <Button id="parameterEditorCancelButton" variant="secondary" size="lg" onClick={ this.props.onCancel }>Go Back</Button>
-        <Button id="parameterEditorSubmitButton" variant="primary" size="lg" onClick={ this.onSubmit }>Convert</Button>
+		return (
+      <div className="parameterEditor">
+        { this.renderTable() }
+        <div id="parameterEditorButtonsContainer">
+          <Button id="parameterEditorCancelButton" variant="secondary" size="lg" onClick={ this.props.onCancel }>Back</Button>
+          <Button id="parameterEditorSubmitButton" variant="primary" type="submit" size="lg" disabled={ this.shouldDisableSubmit() } onClick={ this.onSubmit }>Convert</Button>
+        </div>
+        { this.state.showConvertedUrl && this.renderConvertedUrl() }
       </div>
-      { this.state.showConvertedUrl && this.renderConvertedUrl() }
-    </div>);
+    );
 	}
 }
