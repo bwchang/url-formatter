@@ -17,13 +17,17 @@ export class ParameterEditor extends React.Component {
 		this.state = { parameters, macros, parametersValid, macrosValid, showConvertedUrl: false }
 	}
 
+  rowValid(value) {
+    return !!value && !value.includes("?") && !value.includes("&");
+  };
+
   onChangeParameter = (e) => {
     const newParams = [...this.state.parameters];
     const index = e.target.closest("tr").getAttribute("data-rowid");
     newParams[index] = e.target.value;
 
     const newParamsValid = [...this.state.parametersValid];
-    newParamsValid[index] = !!e.target.value;
+    newParamsValid[index] = this.rowValid(e.target.value);
 
     this.setState({ parameters: newParams, parametersValid: newParamsValid });
   };
@@ -34,7 +38,7 @@ export class ParameterEditor extends React.Component {
     newMacros[index] = e.target.value;
 
     const newMacrosValid = [...this.state.macrosValid];
-    newMacrosValid[index] = !!e.target.value;
+    newMacrosValid[index] = this.rowValid(e.target.value);
 
     this.setState({ macros: newMacros, macrosValid: newMacrosValid });
   };
@@ -97,7 +101,7 @@ export class ParameterEditor extends React.Component {
               onChange={ this.onChangeMacro }
             />
           </td>
-          <td className="text-center">
+          <td className={ `text-center removeRow${index % 2}`} >
             <div className="removeButton" onClick={ this.onRemoveRow }>X</div>
           </td>
         </tr>

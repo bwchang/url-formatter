@@ -88,6 +88,14 @@ th {
   background-color: #d6f4fb;
 }
 
+.removeRow0 {
+  background-color: #8edff3;
+}
+
+.removeRow1 {
+  background-color: #bcecf8;
+}
+
 input {
   color: #08576c;
 }
