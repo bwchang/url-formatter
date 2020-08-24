@@ -39,6 +39,32 @@ export class ParameterEditor extends React.Component {
     this.setState({ macros: newMacros, macrosValid: newMacrosValid });
   };
 
+  onRemoveRow = (e) => {
+    const index = e.target.closest("tr").getAttribute("data-rowid");
+
+    const newParams = [...this.state.parameters];
+    const newMacros = [...this.state.macros];
+    const newParamsValid = [...this.state.parametersValid];
+    const newMacrosValid = [...this.state.macrosValid];
+
+    each([ newParams, newMacros, newParamsValid, newMacrosValid ], (arr) => { arr.splice(index, 1); });
+
+    this.setState({ parameters: newParams, parametersValid: newParamsValid, macros: newMacros, macrosValid: newMacrosValid });
+  };
+
+  onAddRow = () => {
+    const newParams = [...this.state.parameters];
+    newParams.push("")
+    const newMacros = [...this.state.macros];
+    newMacros.push("")
+    const newParamsValid = [...this.state.parametersValid];
+    newParamsValid.push(false)
+    const newMacrosValid = [...this.state.macrosValid];
+    newMacrosValid.push(false)
+
+    this.setState({ parameters: newParams, parametersValid: newParamsValid, macros: newMacros, macrosValid: newMacrosValid });
+  };
+
   onSubmit = () => {
     var url = this.props.url ? this.props.url : "";
     var paramString;
@@ -71,6 +97,9 @@ export class ParameterEditor extends React.Component {
               onChange={ this.onChangeMacro }
             />
           </td>
+          <td className="text-center">
+            <div className="removeButton" onClick={ this.onRemoveRow }>X</div>
+          </td>
         </tr>
       );
     });
@@ -80,9 +109,15 @@ export class ParameterEditor extends React.Component {
           <tr>
             <th id="parameterHeader" className="text-center">Parameter</th>
             <th id="macroHeader" className="text-center">Macro</th>
+            <th id="removeHeader" className="text-center">X</th>
           </tr>
         </thead>
-        <tbody>{ rows }</tbody>
+        <tbody>
+          { rows }
+          <tr>
+            <td><button id="addButton" className="btn btn-link" onClick={ this.onAddRow }>+ Add Row</button></td>
+          </tr>
+        </tbody>
       </Table>
     );
   }

@@ -29,7 +29,7 @@ class Formatter extends React.Component {
 
     	return (
         <div className="formatter">
-          <h1>not a tag splitter</h1>
+          <h1>Tag Formatter</h1>
           { this.state.urlSubmitted ? parameterEditor : urlInput }
         </div>
       );

@@ -71,6 +71,11 @@ th {
 }
 
 #macroHeader {
+  background-color: #08576c;
+  color: white;
+}
+
+#removeHeader {
   background-color: #084959;
   color: white;
 }
@@ -88,5 +93,17 @@ input {
 }
 
 .plainText {
+  color: #08576c;
+}
+
+.removeButton {
+  margin-top: 5px;
+  font-weight: bold;
+  color: red;
+  font-size: large;
+  cursor: pointer;
+}
+
+#addButton {
   color: #08576c;
 }
