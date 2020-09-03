@@ -7,9 +7,8 @@ import { Table, Form, Button } from 'react-bootstrap';
 export class ParameterEditor extends React.Component {
 	constructor(props) {
 		super();
-    const parameters = Object.keys(props.params);
-    const macros = [];
-    each(parameters, (p) => { macros.push(props.params[p]); });
+    const parameters = props.params;
+    const macros = props.macros;
 
     const parametersValid = Array.from(Array(parameters.length),(x,i)=>true);
     const macrosValid = Array.from(Array(macros.length),(x,i)=>true);

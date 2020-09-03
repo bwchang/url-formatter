@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { reduce } from "underscore";
+import { each } from "underscore";
 import { Button, Alert } from 'react-bootstrap';
 
 export class UrlInput extends React.Component {
@@ -20,24 +20,28 @@ export class UrlInput extends React.Component {
 		}
 		const query = this.state.url.split("?")[1]
 		var splitParam;
-		const obj = reduce(query.split("&"), (memo, param) => {
+    const parameters = [];
+    const macros = [];
+    var error;
+		each(query.split("&"), (param) => {
 			splitParam = param.split("=");
 			if (splitParam.length !== 2) {
-				this.setState({ error: "Invalid URL: expecting each parameter to be a key value pair separated by =." });
-				return;
-			}
-			if (!splitParam[0] || !splitParam[1]) {
-				this.setState({ error: "Invalid URL: expecting each key and value to be present." });
-				return;
-			}
-			memo[splitParam[0]] = splitParam[1];
-			return memo;
-		}, {});
-		if (!obj || Object.keys(obj).length === 0) {
-			this.setState({ error: "Invalid URL: expecting at least one parameter." });
-			return;
+				error = `Invalid URL: expecting each parameter to be a key value pair separated by =. Error occurred near ${param}`;
+			} else if (!splitParam[0]) {
+				error = `Invalid URL: expecting each key to be present. Error occurred near ${param}`;
+			} else {
+        parameters.push(splitParam[0]);
+        macros.push(splitParam[1]);
+      }
+		});
+		if (parameters.length === 0) {
+			error = "Invalid URL: expecting at least one parameter.";
 		}
-		this.props.onSubmit(obj, this.state.url.split("?")[0]);
+    if (error) {
+      this.setState({ error });
+    } else {
+      this.props.onSubmit(parameters, macros, this.state.url.split("?")[0]);
+    }
 	}
 
   render() {

@@ -12,8 +12,8 @@ class Formatter extends React.Component {
 		this.state = { urlSubmitted: false }
 	}
 
-	onUrlSubmit = (params, url) => {
-		this.setState({ urlSubmitted: true, params, url })
+	onUrlSubmit = (params, macros, url) => {
+		this.setState({ urlSubmitted: true, params, macros, url })
 	};
 
   onEditorSubmit = () => {
@@ -25,7 +25,7 @@ class Formatter extends React.Component {
 
   	render() {
   		const urlInput = (<UrlInput onSubmit={ this.onUrlSubmit }/>);
-      const parameterEditor = (<ParameterEditor params={ this.state.params } url={ this.state.url } onCancel={ this.onEditorCancel } />);
+      const parameterEditor = (<ParameterEditor params={ this.state.params } macros={ this.state.macros } url={ this.state.url } onCancel={ this.onEditorCancel } />);
 
     	return (
         <div className="formatter">
